@@ -27,6 +27,17 @@
       </li>
       <li class="treeview" ng-show="vm.can('manage.users')">
         <a href="javascript:void(0)">
+          <i class="fa fa-users"></i> <span>交易中心</span> <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li ng-show="vm.can('manage.users')" class="active"><a ui-sref='app.tradedt'><i class="fa fa-circle-o"></i> <span>交易动态</span></a></li>
+        </ul>
+      </li>
+
+
+
+      <li class="treeview" ng-show="vm.can('manage.users')">
+        <a href="javascript:void(0)">
           <i class="fa fa-users"></i> <span>Users</span> <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">

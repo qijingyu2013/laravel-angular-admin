@@ -27,6 +27,9 @@ import { ForgotPasswordComponent } from './app/components/forgot-password/forgot
 import { LoginFormComponent } from './app/components/login-form/login-form.component'
 import { RegisterFormComponent } from './app/components/register-form/register-form.component'
 
+import { TradeDtComponent } from './app/components/trade-dt/trade-dt.component'
+import { TradeDtAddComponent } from './app/components/trade-dt-add/trade-dt-add.component'
+
 angular.module('app.components')
   .component('tablesSimple', TablesSimpleComponent)
   .component('uiModal', UiModalComponent)
@@ -56,3 +59,8 @@ angular.module('app.components')
   .component('forgotPassword', ForgotPasswordComponent)
   .component('loginForm', LoginFormComponent)
   .component('registerForm', RegisterFormComponent)
+
+
+  .component('tradeDt', TradeDtComponent)
+  .component('tradeDtAdd', TradeDtAddComponent)
+

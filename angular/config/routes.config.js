@@ -369,4 +369,27 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
         }
       }
     })
+
+    .state('app.tradedt', {
+      url: '/trade-dt',
+      data: {
+        auth: false
+      },
+      views: {
+        'main@app': {
+          template: '<trade-dt></trade-dt>'
+        }
+      }
+    })
+    .state('app.tradedtadd', {
+      url: '/trade-dt-add',
+      data: {
+        auth: false
+      },
+      views: {
+        'main@app': {
+          template: '<trade-dt-add></trade-dt-add>'
+        }
+      }
+    })
 }

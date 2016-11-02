@@ -1,12 +1,12 @@
-class UserListsController {
+class TradeDtController {
   constructor ($scope, $state, $compile, DTOptionsBuilder, DTColumnBuilder, API) {
     'ngInject'
     this.API = API
     this.$state = $state
 
-    let Users = this.API.service('users')
-console.log(Users);
-    Users.getList()
+    let Roles = this.API.service('roles', this.API.all('news'))
+
+    Roles.getList()
       .then((response) => {
         let dataSet = response.plain()
 
@@ -18,8 +18,8 @@ console.log(Users);
 
         this.dtColumns = [
           DTColumnBuilder.newColumn('id').withTitle('ID'),
-          DTColumnBuilder.newColumn('name').withTitle('Name'),
-          DTColumnBuilder.newColumn('email').withTitle('Email'),
+          DTColumnBuilder.newColumn('title').withTitle('Title'),
+          DTColumnBuilder.newColumn('content').withTitle('Content'),
           DTColumnBuilder.newColumn(null).withTitle('Actions').notSortable()
             .renderWith(actionsHtml)
         ]
@@ -33,7 +33,7 @@ console.log(Users);
 
     let actionsHtml = (data) => {
       return `
-                <a class="btn btn-xs btn-warning" ui-sref="app.useredit({userId: ${data.id}})">
+                <a class="btn btn-xs btn-warning" ui-sref="app.userrolesedit({roleId: ${data.id}})">
                     <i class="fa fa-edit"></i>
                 </a>
                 &nbsp
@@ -43,7 +43,7 @@ console.log(Users);
     }
   }
 
-  delete (userId) {
+  delete (roleId) {
     let API = this.API
     let $state = this.$state
 
@@ -58,11 +58,11 @@ console.log(Users);
       showLoaderOnConfirm: true,
       html: false
     }, function () {
-      API.one('users').one('user', userId).remove()
+      API.one('users').one('roles', roleId).remove()
         .then(() => {
           swal({
             title: 'Deleted!',
-            text: 'User Permission has been deleted.',
+            text: 'User Role has been deleted.',
             type: 'success',
             confirmButtonText: 'OK',
             closeOnConfirm: true
@@ -76,9 +76,9 @@ console.log(Users);
   $onInit () {}
 }
 
-export const UserListsComponent = {
-  templateUrl: './views/app/components/user-lists/user-lists.component.html',
-  controller: UserListsController,
+export const TradeDtComponent = {
+  templateUrl: './views/app/components/trade-dt/trade-dt.component.html',
+  controller: TradeDtController,
   controllerAs: 'vm',
   bindings: {}
 }
