@@ -407,4 +407,117 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
         tradeId: null
       }
     })
+
+    .state('app.teaculture', {
+      url: '/tea-culture',
+      data: {
+        auth: true
+      },
+      views: {
+        'main@app': {
+          template: '<tea-culture></tea-culture>'
+        }
+      }
+    })
+    .state('app.teacultureadd', {
+      url: '/tea-culture-add',
+      data: {
+        auth: true
+      },
+      views: {
+        'main@app': {
+          template: '<tea-culture-add></tea-culture-add>'
+        }
+      }
+    })
+    .state('app.teacultureedit', {
+      url: '/tea-culture-edit/:teaId',
+      data: {
+        auth: true
+      },
+      views: {
+        'main@app': {
+          template: '<tea-culture-edit></tea-culture-edit>'
+        }
+      },
+      params: {
+        alerts: null,
+        tradeId: null
+      }
+    })
+
+    .state('app.teaknowledge', {
+      url: '/tea-knowledge',
+      data: {
+        auth: true
+      },
+      views: {
+        'main@app': {
+          template: '<tea-knowledge></tea-knowledge>'
+        }
+      }
+    })
+    .state('app.teaknowledgeadd', {
+      url: '/tea-knowledge-add',
+      data: {
+        auth: true
+      },
+      views: {
+        'main@app': {
+          template: '<tea-knowledge-add></tea-knowledge-add>'
+        }
+      }
+    })
+    .state('app.teaknowledgeedit', {
+      url: '/tea-knowledge-edit/:teaId',
+      data: {
+        auth: true
+      },
+      views: {
+        'main@app': {
+          template: '<tea-knowledge-edit></tea-knowledge-edit>'
+        }
+      },
+      params: {
+        alerts: null,
+        tradeId: null
+      }
+    })
+    .state('app.collectiontea', {
+      url: '/collection-tea',
+      data: {
+        auth: true
+      },
+      views: {
+        'main@app': {
+          template: '<collection-tea></collection-tea>'
+        }
+      }
+    })
+    .state('app.collectionteaadd', {
+      url: '/collection-tea-add',
+      data: {
+        auth: true
+      },
+      views: {
+        'main@app': {
+          template: '<collection-tea-add></collection-tea-add>'
+        }
+      }
+    })
+    .state('app.collectionteaedit', {
+      url: '/collection-tea-edit/:teaId',
+      data: {
+        auth: true
+      },
+      views: {
+        'main@app': {
+          template: '<collection-tea-edit></collection-tea-edit>'
+        }
+      },
+      params: {
+        alerts: null,
+        tradeId: null
+      }
+    })
 }
