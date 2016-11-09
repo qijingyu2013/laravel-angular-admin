@@ -6,10 +6,11 @@ class UserListsController {
 
     let Users = this.API.service('users')
 console.log(Users);
+      console.log(Users.getList());
     Users.getList()
       .then((response) => {
         let dataSet = response.plain()
-
+        console.log(dataSet)
         this.dtOptions = DTOptionsBuilder.newOptions()
           .withOption('data', dataSet)
           .withOption('createdRow', createdRow)

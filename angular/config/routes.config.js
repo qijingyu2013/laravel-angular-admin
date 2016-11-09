@@ -183,7 +183,7 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
     .state('app.userroles', {
       url: '/user-roles',
       data: {
-        auth: true
+        auth: false
       },
       views: {
         'main@app': {
@@ -373,7 +373,7 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
     .state('app.tradedt', {
       url: '/trade-dt',
       data: {
-        auth: false
+        auth: true
       },
       views: {
         'main@app': {
@@ -384,12 +384,27 @@ export function RoutesConfig ($stateProvider, $urlRouterProvider) {
     .state('app.tradedtadd', {
       url: '/trade-dt-add',
       data: {
-        auth: false
+        auth: true
       },
       views: {
         'main@app': {
           template: '<trade-dt-add></trade-dt-add>'
         }
+      }
+    })
+    .state('app.tradedtedit', {
+      url: '/trade-dt-edit/:tradeId',
+      data: {
+        auth: true
+      },
+      views: {
+        'main@app': {
+          template: '<trade-dt-edit></trade-dt-edit>'
+        }
+      },
+      params: {
+        alerts: null,
+        tradeId: null
       }
     })
 }

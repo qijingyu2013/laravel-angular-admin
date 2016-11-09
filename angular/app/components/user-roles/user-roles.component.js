@@ -5,7 +5,7 @@ class UserRolesController {
     this.$state = $state
 
     let Roles = this.API.service('roles', this.API.all('users'))
-
+      console.log(Roles.getList());
     Roles.getList()
       .then((response) => {
         let dataSet = response.plain()

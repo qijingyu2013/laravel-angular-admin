@@ -6,6 +6,7 @@ use App\User;
 use Auth;
 use Bican\Roles\Models\Permission;
 use Bican\Roles\Models\Role;
+use App\Inform;
 use Hash;
 use Illuminate\Http\Request;
 use Input;
@@ -264,6 +265,22 @@ class UserController extends Controller
         $permissions = Permission::all();
 
         return response()->success(compact('permissions'));
+    }
+
+    public function getInforms(){
+//        $newsObj = new News();
+//        $news = $newsObj->getDtNewsLists();
+
+        $informs = Inform::all();
+        return response()->success(compact('informs'));
+    }
+
+    public function getDtinforms(){
+//        $newsObj = new News();
+//        $news = $newsObj->getDtNewsLists();
+
+        $dtinforms = Inform::all();
+        return response()->success(compact('dtinforms'));
     }
 
     /**

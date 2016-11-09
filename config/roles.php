@@ -42,6 +42,7 @@ return [
     'models' => [
         'role' => Bican\Roles\Models\Role::class,
         'permission' => Bican\Roles\Models\Permission::class,
+        'inform' => App\Inform::class,
     ],
 
     /*

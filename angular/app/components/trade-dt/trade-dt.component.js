@@ -4,13 +4,14 @@ class TradeDtController {
     this.API = API
     this.$state = $state
 
-    let Roles = this.API.service('roles', this.API.all('news'))
+      //let Permissions = this.API.service('dtinforms', this.API.all('informs'))
+      let Permissions = this.API.service('dtinforms', this.API.all('informs'))
 
-    Roles.getList()
-      .then((response) => {
-        let dataSet = response.plain()
+      Permissions.getList()
+          .then((response) => {
+          let dataSet = response.plain()
 
-        this.dtOptions = DTOptionsBuilder.newOptions()
+          this.dtOptions = DTOptionsBuilder.newOptions()
           .withOption('data', dataSet)
           .withOption('createdRow', createdRow)
           .withOption('responsive', true)
@@ -24,8 +25,8 @@ class TradeDtController {
             .renderWith(actionsHtml)
         ]
 
-        this.displayTable = true
-      })
+      this.displayTable = true
+  })
 
     let createdRow = (row) => {
       $compile(angular.element(row).contents())($scope)
@@ -43,35 +44,35 @@ class TradeDtController {
     }
   }
 
-  delete (roleId) {
-    let API = this.API
-    let $state = this.$state
-
-    swal({
-      title: 'Are you sure?',
-      text: 'You will not be able to recover this data!',
-      type: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#DD6B55',
-      confirmButtonText: 'Yes, delete it!',
-      closeOnConfirm: false,
-      showLoaderOnConfirm: true,
-      html: false
-    }, function () {
-      API.one('users').one('roles', roleId).remove()
-        .then(() => {
-          swal({
-            title: 'Deleted!',
-            text: 'User Role has been deleted.',
-            type: 'success',
-            confirmButtonText: 'OK',
-            closeOnConfirm: true
-          }, function () {
-            $state.reload()
-          })
-        })
-    })
-  }
+  //delete (roleId) {
+  //  let API = this.API
+  //  let $state = this.$state
+  //
+  //  swal({
+  //    title: 'Are you sure?',
+  //    text: 'You will not be able to recover this data!',
+  //    type: 'warning',
+  //    showCancelButton: true,
+  //    confirmButtonColor: '#DD6B55',
+  //    confirmButtonText: 'Yes, delete it!',
+  //    closeOnConfirm: false,
+  //    showLoaderOnConfirm: true,
+  //    html: false
+  //  }, function () {
+  //    API.one('users').one('roles', roleId).remove()
+  //      .then(() => {
+  //        swal({
+  //          title: 'Deleted!',
+  //          text: 'User Role has been deleted.',
+  //          type: 'success',
+  //          confirmButtonText: 'OK',
+  //          closeOnConfirm: true
+  //        }, function () {
+  //          $state.reload()
+  //        })
+  //      })
+  //  })
+  //}
 
   $onInit () {}
 }

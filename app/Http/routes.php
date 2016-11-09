@@ -27,6 +27,10 @@ $api->group(['middleware' => ['api']], function ($api) {
     $api->post('auth/password/email', 'Auth\PasswordResetController@sendResetLinkEmail');
     $api->get('auth/password/verify', 'Auth\PasswordResetController@verify');
     $api->post('auth/password/reset', 'Auth\PasswordResetController@reset');
+
+    //news
+//    $api->get('dtlists', 'News\NewsDtController@getLists');
+//    $api->get('news/dtlists', 'News\NewsDtController@getLists');
 });
 
 $api->group(['middleware' => ['api', 'api.auth']], function ($api) {
@@ -34,6 +38,15 @@ $api->group(['middleware' => ['api', 'api.auth']], function ($api) {
     $api->put('users/me', 'UserController@putMe');
 });
 
-$api->group(['middleware' => ['api', 'api.auth', 'role:admin.super|admin.user']], function ($api) {
+$api->group(['middleware' => ['api', 'api.auth', 'role:admin.super|admin.user|admin.inform|admin.dtinform']], function ($api) {
     $api->controller('users', 'UserController');
+    $api->controller('informs', 'InformController');
 });
+
+
+
+//$api->group(['middleware' => ['api']], function ($api) {
+//    //, 'api.news' , 'role:admin.super|admin.inform'
+//    $api->get('informs/dtlists', 'InformController@getLists');
+////    $api->controller('news', 'NewController');
+//});
